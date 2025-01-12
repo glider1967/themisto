@@ -22,8 +22,8 @@ const getPost = async (id: string) => {
   return post;
 };
 
-export default async function Post({ params }: { params: { id: string } }) {
-  const { id } = await params;
+export default async function Post(props: { params: Promise<{ id: string }> }) {
+  const { id } = await props.params;
   const post = await getPost(id);
   return (
     <div className="p-5">

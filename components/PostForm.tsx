@@ -27,7 +27,7 @@ export default function PostForm({
     handleSubmit,
     register,
     watch,
-    formState: { errors },
+    formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm<PostFormData>({
     resolver: zodResolver(postFormDataSchema),
     defaultValues: initialData ?? {
@@ -203,6 +203,7 @@ export default function PostForm({
           <button
             type="submit"
             className="block m-2 p-2 border border-gray-500"
+            disabled={isSubmitting || isSubmitSuccessful}
           >
             Submit
           </button>

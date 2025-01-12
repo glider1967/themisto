@@ -14,7 +14,7 @@ const getPost = async (id: string) => {
 export default async function UpdatePost({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
   const postId = parseInt(id);

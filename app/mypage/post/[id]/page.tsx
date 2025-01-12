@@ -11,12 +11,10 @@ const getPost = async (id: string) => {
   return post;
 };
 
-export default async function UpdatePost({
-  params,
-}: {
+export default async function UpdatePost(props: {
   params: Promise<{ id: string }>;
 }) {
-  const { id } = await params;
+  const { id } = await props.params;
   const postId = parseInt(id);
   const session = await auth();
   const userId = session?.user?.id;

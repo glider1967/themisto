@@ -13,12 +13,14 @@ export default async function MyPostList({ userId }: { userId: string }) {
   return (
     <div className="grid grid-cols-3 gap-4">
       {posts &&
-        posts.map((todo) => {
+        posts.map((post) => {
+          let desc = post.description;
+          if (desc.length > 50) desc = desc.slice(0, 50) + "...";
           return (
-            <div key={todo.id} className="border rounded p-2 m-2">
-              <div className="font-bold text-lg">{todo.title}</div>
-              <div className="text-lg">{todo.description}</div>
-              <Link href={`mypage/post/${todo.id}`} className="text-blue-400">
+            <div key={post.id} className="border rounded p-2 m-2">
+              <div className="font-bold text-lg">{post.title}</div>
+              <div className="text-lg break-words">{desc}</div>
+              <Link href={`mypage/post/${post.id}`} className="text-blue-400">
                 Edit...
               </Link>
             </div>

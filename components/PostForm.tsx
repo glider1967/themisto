@@ -57,6 +57,7 @@ export default function PostForm({
       />
       <form
         onSubmit={handleSubmit(async (value) => {
+          // await new Promise((r) => setTimeout(r, 5000));
           const res = await fetch("/api/post", {
             method: method,
             headers: { "Content-Type": "application/json" },
@@ -186,7 +187,7 @@ export default function PostForm({
             onClick={() =>
               append({ title: "", artist: "", videoLink: { type: "none" } })
             }
-            className="block m-2 bg-blue-700 text-white text-sm px-3 py-1 rounded"
+            className="block m-2 bg-blue-600 text-white text-sm px-3 py-1 rounded"
           >
             + Add Music
           </button>
@@ -202,10 +203,18 @@ export default function PostForm({
           </label>
           <button
             type="submit"
-            className="block m-2 p-2 border border-gray-500"
+            className="relative block m-2 p-2 border border-gray-500 rounded"
             disabled={isSubmitting || isSubmitSuccessful}
           >
             Submit
+            {(isSubmitting || isSubmitSuccessful) && (
+              <div className="absolute -top-1 -right-1">
+                <span className="relative flex h-3 w-3 top-0 right-0">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-600"></span>
+                </span>
+              </div>
+            )}
           </button>
           <button className="p-2 text-red-400" onClick={() => setIsOpen(true)}>
             Cancel

@@ -1,5 +1,6 @@
 import { auth } from "@/auth";
 import LoginButton from "./LoginButton";
+import Link from "next/link";
 
 export default async function Header() {
   const session = await auth();
@@ -11,6 +12,14 @@ export default async function Header() {
       <div className="flex-none inline-block align-middle text-sm p-2">
         Hello {session?.user?.name ?? "guest"}
       </div>
+      {session?.user && (
+        <Link
+          href="/mypage"
+          className="flex-none inline-block align-middle text-blue-400 p-1"
+        >
+          My Page
+        </Link>
+      )}
       <div className="flex-none">
         <LoginButton isLogin={session?.user !== undefined} />
       </div>

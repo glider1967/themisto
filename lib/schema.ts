@@ -45,3 +45,15 @@ export const postUpdateSchema = postFormDataSchema.extend({
   userId: z.string(),
   postId: z.number(),
 });
+
+export const getPostsSchema = z.object({
+  posts: z.array(
+    z.object({
+      id: z.number(),
+      title: z.string(),
+      description: z.string(),
+    })
+  ),
+  totalPages: z.number(),
+  currentPage: z.number(),
+});

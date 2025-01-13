@@ -216,11 +216,11 @@ export default function PostForm({
               </div>
             )}
           </button>
-          <button className="p-2 text-red-400" onClick={() => setIsOpen(true)}>
-            Cancel
-          </button>
         </div>
       </form>
+      <button className="p-2 text-red-400" onClick={() => setIsOpen(true)}>
+        Cancel
+      </button>
     </>
   );
 }

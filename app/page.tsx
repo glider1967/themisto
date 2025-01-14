@@ -1,10 +1,13 @@
 import PostList from "@/components/PostList";
 
-export default function Home() {
+export default async function Home(props: {
+  searchParams: Promise<{ page: string }>;
+}) {
+  const { page } = await props.searchParams;
   return (
     <main>
       <div className="text-lg">Recent updates:</div>
-      <PostList />
+      <PostList page={page} />
     </main>
   );
 }

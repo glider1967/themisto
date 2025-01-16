@@ -18,13 +18,13 @@ const Modal = (props: ModalProps) => {
         <p className="text-lg mb-5">{props.message}</p>
         <div className="flex mt-auto w-full">
           <button
-            className="bg-slate-900 hover:bg-slate-700 text-white px-8 py-2 mx-auto"
+            className="border-2 rounded hover:bg-slate-200 px-8 py-2 mx-auto"
             onClick={() => props.onOk()}
           >
             OK
           </button>
           <button
-            className="bg-slate-900 hover:bg-slate-700 text-white px-8 py-2 mx-auto"
+            className="border-2 rounded hover:bg-slate-200 px-8 py-2 mx-auto"
             onClick={() => props.onCancel()}
           >
             {props.cancel}

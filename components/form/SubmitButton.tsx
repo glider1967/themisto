@@ -10,7 +10,7 @@ export function SubmitButton() {
   return (
     <button
       type="submit"
-      className="relative block m-2 p-2 border border-gray-500 rounded"
+      className="relative block m-2 p-2 border-2 hover:bg-gray-200 rounded"
       disabled={isSubmitting || isSubmitSuccessful}
     >
       Submit

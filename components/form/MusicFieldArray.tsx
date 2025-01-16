@@ -74,7 +74,7 @@ export function MusicFieldArray() {
             <button
               type="button"
               onClick={() => remove(idx)}
-              className="bg-red-500 text-white text-sm px-3 py-1 rounded"
+              className="border border-red-500 text-red-500 text-sm px-3 py-1 rounded"
             >
               - Remove
             </button>
@@ -86,7 +86,7 @@ export function MusicFieldArray() {
         onClick={() =>
           append({ title: "", artist: "", videoLink: { type: "none" } })
         }
-        className="block m-2 bg-blue-600 text-white text-sm px-3 py-1 rounded"
+        className="block m-2 border border-blue-600 text-blue-600 text-sm px-3 py-1 rounded"
       >
         + Add Music
       </button>

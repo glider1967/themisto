@@ -32,7 +32,9 @@ export default function PostForm({
       title: "",
       desc: "",
       status: false,
-      musics: [{ title: "", artist: "", videoLink: { type: "none" } }],
+      musics: [
+        { title: "", artist: "", desc: "", videoLink: { type: "none" } },
+      ],
     },
   });
 

@@ -2,9 +2,10 @@
 
 import { useFormContext, useFieldArray } from "react-hook-form";
 import { FormInput } from "./FormInput";
+import { PostFormData } from "@/lib/schema";
 
 export function MusicFieldArray() {
-  const { control, register, watch } = useFormContext();
+  const { control, register, watch } = useFormContext<PostFormData>();
   const { fields, append, remove } = useFieldArray({ control, name: "musics" });
 
   return (
@@ -51,6 +52,12 @@ export function MusicFieldArray() {
               placeholder="artist"
             />
 
+            <FormInput
+              label="Description of music"
+              name={`musics.${idx}.desc`}
+              placeholder="description"
+            />
+
             <div>
               <p className="text-sm">Link type:</p>
               <select
@@ -84,7 +91,12 @@ export function MusicFieldArray() {
       <button
         type="button"
         onClick={() =>
-          append({ title: "", artist: "", videoLink: { type: "none" } })
+          append({
+            title: "",
+            artist: "",
+            desc: "",
+            videoLink: { type: "none" },
+          })
         }
         className="block m-2 border border-blue-600 text-blue-600 text-sm px-3 py-1 rounded"
       >

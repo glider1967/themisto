@@ -7,7 +7,7 @@ export default async function LoginButton({ isLogin }: { isLogin: boolean }) {
         "use server";
         await signIn("github");
       }}
-      className="bg-blue-200 rounded p-1"
+      className="border border-blue-600 rounded p-1"
     >
       <button type="submit">Signin with GitHub</button>
     </form>
@@ -17,7 +17,7 @@ export default async function LoginButton({ isLogin }: { isLogin: boolean }) {
         "use server";
         await signOut();
       }}
-      className="bg-blue-200 rounded p-1"
+      className="border border-blue-600 rounded p-1"
     >
       <button type="submit">Signout</button>
     </form>

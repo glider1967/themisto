@@ -32,7 +32,9 @@ export default function PostForm({
       title: "",
       desc: "",
       status: false,
-      musics: [{ title: "", artist: "", videoLink: { type: "none" } }],
+      musics: [
+        { title: "", artist: "", desc: "", videoLink: { type: "none" } },
+      ],
     },
   });
 
@@ -59,9 +61,13 @@ export default function PostForm({
         })}
       >
         <div className="p-8">
-          <FormInput label="Title" name="title" placeholder="title" />
+          <FormInput<PostFormData>
+            label="Title"
+            name="title"
+            placeholder="title"
+          />
 
-          <FormTextArea
+          <FormTextArea<PostFormData>
             label="Description"
             name="desc"
             placeholder="description"

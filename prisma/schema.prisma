@@ -25,6 +25,7 @@ model Music {
 
   title       String
   artist      String
+  description String?
   linkType    VideoLinkType
   linkContent String?
 

@@ -32,6 +32,7 @@ export default async function UpdatePost(props: {
       return {
         title: music.title,
         artist: music.artist,
+        desc: music.description,
         videoLink: toFrontObject(music.linkType, music.linkContent),
       };
     }),

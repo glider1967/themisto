@@ -23,6 +23,7 @@ export type VideoLink = z.infer<typeof videoLinkSchema>;
 export const musicFormDataSchema = z.object({
   title: z.string().min(1, "Music title is required"),
   artist: z.string().min(1, "Artist name is required"),
+  desc: z.string().nullable(),
   videoLink: videoLinkSchema,
 });
 

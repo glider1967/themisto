@@ -2,9 +2,10 @@
 
 import { useFormContext, useFieldArray } from "react-hook-form";
 import { FormInput } from "./FormInput";
+import { PostFormData } from "@/lib/schema";
 
 export function MusicFieldArray() {
-  const { control, register, watch } = useFormContext();
+  const { control, register, watch } = useFormContext<PostFormData>();
   const { fields, append, remove } = useFieldArray({ control, name: "musics" });
 
   return (
@@ -39,16 +40,22 @@ export function MusicFieldArray() {
 
         return (
           <div key={field.id} className="space-y-2 p-4 border rounded">
-            <FormInput
+            <FormInput<PostFormData>
               label="Music Title"
               name={`musics.${idx}.title`}
               placeholder="title"
             />
 
-            <FormInput
+            <FormInput<PostFormData>
               label="Artist(Author)"
               name={`musics.${idx}.artist`}
               placeholder="artist"
+            />
+
+            <FormInput<PostFormData>
+              label="Description of music"
+              name={`musics.${idx}.desc`}
+              placeholder="description"
             />
 
             <div>
@@ -64,7 +71,7 @@ export function MusicFieldArray() {
             </div>
 
             {fieldName && (
-              <FormInput
+              <FormInput<PostFormData>
                 label={fieldName}
                 name={`musics.${idx}.videoLink.${fieldName}`}
                 placeholder={placeholder ?? ""}
@@ -74,7 +81,7 @@ export function MusicFieldArray() {
             <button
               type="button"
               onClick={() => remove(idx)}
-              className="bg-red-500 text-white text-sm px-3 py-1 rounded"
+              className="border border-red-500 text-red-500 text-sm px-3 py-1 rounded"
             >
               - Remove
             </button>
@@ -84,9 +91,14 @@ export function MusicFieldArray() {
       <button
         type="button"
         onClick={() =>
-          append({ title: "", artist: "", videoLink: { type: "none" } })
+          append({
+            title: "",
+            artist: "",
+            desc: "",
+            videoLink: { type: "none" },
+          })
         }
-        className="block m-2 bg-blue-600 text-white text-sm px-3 py-1 rounded"
+        className="block m-2 border border-blue-600 text-blue-600 text-sm px-3 py-1 rounded"
       >
         + Add Music
       </button>

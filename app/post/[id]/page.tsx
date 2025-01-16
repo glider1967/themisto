@@ -84,6 +84,9 @@ export default async function Post(props: { params: Promise<{ id: string }> }) {
                   <div className="italic font-bold m-2">{music.title}</div>
                   <div className="m-2">by {music.artist}</div>
                 </div>
+                {music.description && (
+                  <p className="p-2 bg-slate-200">{music.description}</p>
+                )}
                 {link}
               </div>
             );

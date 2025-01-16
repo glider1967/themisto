@@ -10,7 +10,7 @@ export default async function MyPage() {
     <div className="p-2 space-y-3">
       <div>Your Posts</div>
       <MyPostList {...{ userId }} />
-      <button className="border-2 rounded border-blue-200 p-1">
+      <button className="border-2 rounded border-slate-200 p-1">
         <Link href={"/mypage/create"}>Create New</Link>
       </button>
       <div className="text-blue-400 p-1">

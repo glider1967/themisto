@@ -20,12 +20,17 @@ export function toFrontObject(
 export function toBackObject(musics: MusicFront[]): {
   title: string;
   artist: string;
+  description: string | null;
   linkType: VideoLinkType;
   linkContent: string | null;
 }[] {
   return musics.map((music) => {
     const videoLink = music.videoLink;
-    const ta = { title: music.title, artist: music.artist };
+    const ta = {
+      title: music.title,
+      artist: music.artist,
+      description: music.desc,
+    };
     switch (videoLink.type) {
       case "youtube":
         return {

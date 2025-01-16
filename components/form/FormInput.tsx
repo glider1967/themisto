@@ -1,15 +1,19 @@
 "use client";
 
 import { ErrorMessage } from "@hookform/error-message";
-import { useFormContext } from "react-hook-form";
+import { FieldValues, Path, useFormContext } from "react-hook-form";
 
-interface FormInputProps {
+interface FormInputProps<T> {
   label: string;
-  name: string;
+  name: Path<T>;
   placeholder?: string;
 }
 
-export function FormInput({ label, name, placeholder }: FormInputProps) {
+export function FormInput<T extends FieldValues = never>({
+  label,
+  name,
+  placeholder,
+}: FormInputProps<T>) {
   const {
     register,
     formState: { errors },

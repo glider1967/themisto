@@ -40,19 +40,19 @@ export function MusicFieldArray() {
 
         return (
           <div key={field.id} className="space-y-2 p-4 border rounded">
-            <FormInput
+            <FormInput<PostFormData>
               label="Music Title"
               name={`musics.${idx}.title`}
               placeholder="title"
             />
 
-            <FormInput
+            <FormInput<PostFormData>
               label="Artist(Author)"
               name={`musics.${idx}.artist`}
               placeholder="artist"
             />
 
-            <FormInput
+            <FormInput<PostFormData>
               label="Description of music"
               name={`musics.${idx}.desc`}
               placeholder="description"
@@ -71,7 +71,7 @@ export function MusicFieldArray() {
             </div>
 
             {fieldName && (
-              <FormInput
+              <FormInput<PostFormData>
                 label={fieldName}
                 name={`musics.${idx}.videoLink.${fieldName}`}
                 placeholder={placeholder ?? ""}

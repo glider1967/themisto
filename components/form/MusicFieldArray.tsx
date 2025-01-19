@@ -3,6 +3,7 @@
 import { useFormContext, useFieldArray } from "react-hook-form";
 import { FormInput } from "./FormInput";
 import { PostFormData } from "@/lib/schema";
+import { FormTextArea } from "./FormTextArea";
 
 export function MusicFieldArray() {
   const { control, register, watch } = useFormContext<PostFormData>();
@@ -52,7 +53,7 @@ export function MusicFieldArray() {
               placeholder="artist"
             />
 
-            <FormInput<PostFormData>
+            <FormTextArea<PostFormData>
               label="Description of music"
               name={`musics.${idx}.desc`}
               placeholder="description"
@@ -62,7 +63,7 @@ export function MusicFieldArray() {
               <p className="text-sm">Link type:</p>
               <select
                 {...register(`musics.${idx}.videoLink.type`)}
-                className="block w-full border rounded p-2"
+                className="block w-full border rounded p-2 m-2"
               >
                 <option value="none">No Video</option>
                 <option value="youtube">YouTube</option>

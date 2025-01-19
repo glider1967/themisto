@@ -31,7 +31,7 @@ export function FormInput<T extends FieldValues = never>({
       />
       <input
         type="text"
-        className="block m-2 h-5 p-4 border rounded"
+        className="block m-2 h-5 p-4 border rounded w-full"
         placeholder={placeholder}
         {...register(name)}
       />

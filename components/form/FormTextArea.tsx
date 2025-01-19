@@ -30,7 +30,7 @@ export function FormTextArea<T extends FieldValues = never>({
         )}
       />
       <textarea
-        className="block m-2 h-20 p-2 border rounded"
+        className="block m-2 h-20 p-2 border rounded w-full"
         placeholder={placeholder}
         {...register(name)}
       />
